@@ -1,0 +1,41 @@
+.login {
+    width: 994px;
+    margin: 0 auto; 
+}  
+.login label { 
+    padding-left: 347px;
+    font-size: 15px;
+    display: block; 
+    text-align: left;
+}
+.login .input {
+    width: 300px;
+    height: 47px;
+    line-height: 47px;
+    box-sizing: border-box;
+    border: 1px solid #d5d5d5;
+    border-bottom: none;
+    box-shadow: none;
+    padding: 10px 8px;
+    background-color: #fff; 
+}
+.login .last .input {
+    border-bottom: 1px solid #d5d5d5;
+}
+.login .loginSub {
+    margin-top: 18px; 
+    width: 300px;
+    height: 41px;
+    line-height: 41px;
+    background-color: #0f88eb;
+    color: #fff; 
+    font-size: 15px;
+    border: none;
+    border-radius: 3px;
+    text-align: center;
+    cursor: pointer; 
+}
+.loginSub i {
+    margin-left: 5px;
+    font-size: 20px;
+}

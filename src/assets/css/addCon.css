@@ -1,0 +1,65 @@
+ .rside h2 {
+    width: 84%;
+    text-align: center;
+    padding: 20px;
+    margin-top: 138px;
+    font-size: 38px;
+    font-family: "幼圆"; 
+ }
+ .form { 
+    width: 82%;
+    padding-top: 20px;
+ }
+ .form label {
+    display: block; 
+    width: 770px;
+    height: 42px;
+    margin-left: 256px;
+    margin-bottom: 15px;
+ }
+ .form span {
+     display: inline-block;
+     width: 87px;
+     font-size: 16px;   
+     text-align: right;
+     margin-right: 10px;
+ }
+ .form input {
+     width: 300px;
+     height: 40px;
+     padding-left: 10px;
+     box-sizing: border-box;
+     font-size: 16px;
+     border-radius: 5px;
+     border: 1px solid #ccc;
+     background-color: #fff;
+ }
+ .form select {
+     height: 35px;
+     width: 150px;
+     border: 1px solid #ccc;
+     padding-left: 10px;
+     box-sizing: border-box;
+ }
+ .form select:focus, .form button:focus {
+     outline: none;
+ } 
+.form button.nomal {
+     width: 150px; 
+     border: none;
+     height: 40px;
+     font-size: 18px;
+     border-radius: 5px; 
+     cursor: pointer;
+     background-color: #0f88eb;
+     color: #fff;
+}  
+.form button.btn {
+    background-color: #ccc;
+}
+input.error {
+    border: 2px solid #ff0000;
+}
+em {
+    color: rgb(255, 0, 0);
+}

@@ -1,0 +1,27 @@
+@import './addCon.css';
+ 
+.form input.read {
+    background-color: #f7fafc;
+    border: none;
+    text-align: center;
+} 
+.form button.large {
+    width: 300px; 
+}  
+.editing button {
+    width: 147px;
+    height: 40px;
+    font-size: 18px;
+    border-radius: 5px; 
+    cursor: pointer;
+    color: #fff;
+    border: none;
+}
+.editing button.save {
+    background-color: #0f88eb;
+    margin-right: 5px;
+}
+.editing button.return {
+    background-color: #ccc;
+}
+ 
