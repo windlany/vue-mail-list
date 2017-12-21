@@ -49,7 +49,7 @@
                     psw: 1232412213,
                 },
                 clickId: 1,
-                items: ''
+                items: []
                 // [
                 //     {id: contactId++, imgSrc: '/static/img/userImg.png', name: '妈妈', tel: 1234555656, status: "亲人"},
                 //     {id: contactId++, imgSrc: '/static/img/logo.png', name: 'nic', tel: 1234555656, status: "朋友"},
@@ -69,7 +69,7 @@
             }).then((res)=>{
                 this.items = res.data.items;
             }).catch((error)=>{
-                alert('error');
+                // alert('error');
             });
             /*have ajax to get items*/
         },

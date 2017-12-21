@@ -51,6 +51,9 @@
         },
         computed: {
             newItems: function () { 
+                if(this.items.length==0)
+                    return '';
+                    
                 if(this.search) { 
                     return this.items.filter((item)=> {
                             return (item.name.indexOf(this.search) != -1);
