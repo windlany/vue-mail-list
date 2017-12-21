@@ -13,7 +13,7 @@
 
 ``` bash
 # clone项目到本地
-git clone 
+git clone https://github.com/windlany/mail_list.git
 
 # 安装项目依赖
 npm install
