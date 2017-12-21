@@ -9,6 +9,9 @@
 > 随着学习的深入还可以有很多扩展，比如node添加后台、vuex管理状态、添加功能...
 > 刚学vue的同学可以看一看，clone下来练练手，大家互相学习。
 
+## 动图展示
+![](https://github.com/windlany/mail_list/blob/master/static/img/contacts.gif)
+
 ## 运行项目
 
 ``` bash
