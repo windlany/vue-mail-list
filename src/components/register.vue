@@ -77,12 +77,15 @@
 
                     setTimeout(() => {
                         // 如果没写后端
-                        window.localStorage.user1.name=this.name;
-                        window.localStorage.user1.tel=this.tel;
-                        window.localStorage.user1.psw=this.psw;
+                        this.result = true;
+                        this.req = true;
+                        this.icon = false;
+                        this.reg = false;
+
+                        window.localStorage.username=this.name;
+                        window.localStorage.usertel=this.tel;
+                        window.localStorage.userpsw=this.psw;
   
-
-
                         // 如果写了后端用axios交互
                         // this.$http.post('http://127.0.0.1:3000/', qs.stringify({
                         //     name: this.name,

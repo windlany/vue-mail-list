@@ -44,22 +44,22 @@
         data() {
             return {
                 own: {
-                    name: 'lan',
-                    tel: 12345677,
-                    psw: 1232412213,
+                    name: window.localStorage.username,
+                    tel: window.localStorage.usertel,
+                    psw: window.localStorage.userpsw,
                 },
                 clickId: 1,
-                items: []
-                // [
-                //     {id: contactId++, imgSrc: '/static/img/userImg.png', name: '妈妈', tel: 1234555656, status: "亲人"},
-                //     {id: contactId++, imgSrc: '/static/img/logo.png', name: 'nic', tel: 1234555656, status: "朋友"},
-                //     {id: contactId++, imgSrc: '/static/img/userImg.png', name: '爸爸', tel: 1234555656, status: "亲人"},
-                //     {id: contactId++, imgSrc: '/static/img/logo.png', name: 'wind', tel: 1234555656, status: "朋友"},
-                //     {id: contactId++, imgSrc: '/static/img/userImg.png', name: 'lily', tel: 1234555656, status: "同学"},
-                //     {id: contactId++, imgSrc: '/static/img/userImg.png', name: '爷爷', tel: 1234555656, status: "亲人"},
-                //     {id: contactId++, imgSrc: '/static/img/userImg.png', name: 'tom', tel: 1234555656, status: "同学"},
-                //     {id: contactId++, imgSrc: '/static/img/logo.png', name: '外婆', tel: 1234555656, status: "亲人"},
-                // ]
+                items: 
+                [
+                    {id: contactId++, imgSrc: '/static/img/userImg.png', name: '妈妈', tel: 1234555656, status: "亲人"},
+                    {id: contactId++, imgSrc: '/static/img/logo.png', name: 'nic', tel: 1234555656, status: "朋友"},
+                    {id: contactId++, imgSrc: '/static/img/userImg.png', name: '爸爸', tel: 1234555656, status: "亲人"},
+                    {id: contactId++, imgSrc: '/static/img/logo.png', name: 'wind', tel: 1234555656, status: "朋友"},
+                    {id: contactId++, imgSrc: '/static/img/userImg.png', name: 'lily', tel: 1234555656, status: "同学"},
+                    {id: contactId++, imgSrc: '/static/img/userImg.png', name: '爷爷', tel: 1234555656, status: "亲人"},
+                    {id: contactId++, imgSrc: '/static/img/userImg.png', name: 'tom', tel: 1234555656, status: "同学"},
+                    {id: contactId++, imgSrc: '/static/img/logo.png', name: '外婆', tel: 1234555656, status: "亲人"},
+                ]
             }
         }, 
         created() {
@@ -101,6 +101,11 @@
                 this.own.name = obj.name;
                 this.own.tel = obj.tel; 
                 this.own.psw = obj.psw; 
+                
+                // if not have next
+                window.localStorage.username = obj.name;
+                window.localStorage.usertel = obj.tel;
+                window.localStorage.userpsw = obj.psw;
                 
                 /*have ajax to change item*/
             },
