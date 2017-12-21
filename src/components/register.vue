@@ -67,8 +67,7 @@
                     this.pswIn = false;
                 } else 
                     this.pswIn = true;
- 
-
+  
                 if(b == 0) {
                     this.icon = true; 
                     this.result = false;
