@@ -1,6 +1,6 @@
 # mail list 
 
-###前言
+## 前言
 > 最近在学习vue，就写了一个简易的SPA通讯录项目，该项目用了
 > - vue 
 > - vue-router
@@ -14,10 +14,10 @@
 >从零出发完成一个SPA。
 
 
-### 动图展示
+## 动图展示
 ![](https://github.com/windlany/mail_list/blob/master/static/img/contacts.gif)
 
-### 运行项目
+## 运行项目
 ``` bash
 # clone项目到本地
 git clone https://github.com/windlany/mail_list.git
@@ -29,21 +29,21 @@ npm install
 npm run dev 
 ```
 
-### 后期完善的地方
+## 后期完善的地方
 > 由于该项目耗时较短只是写了大概的功能，很多细节需要完善与修正，我也会持续跟进完善的
 > - vuex状态管理
 > - 添加node后台与之交互
 > - ...
 
-### v.1
+## v.1
 - 实现路由跳转
 - localStorage缓存用户信息
 - 项目组件化
 - axios与后台交互
 
-### v.2
+## v.2
 - 添加vuex状态管理
 - 将localStorage替换为sessionStorage，因为目前项目比较简单，没必要用localStorage，后期可能会用localStorage缓存所有用户信息，用sessionStorage缓存当前登录用户信息
 - 删去了axios的交互，因为目前是没有后台的，日后与后台交互的版本会添加上去。
 
-##### 随着学习的深入可以做更多的扩展，刚学vue的朋友可以clone下来练练手，大家相互学习
+#### 随着学习的深入可以做更多的扩展，刚学vue的朋友可以clone下来练练手，大家相互学习
