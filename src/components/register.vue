@@ -12,7 +12,7 @@
             </label>
             <label for="psw" class="last">
                 <input type="password" class="input" id="psw" @focus="focus=3" @blur="focus=0" v-model="psw" placeholder="密码（不少于6位）">
-                <em v-show="focus==3||pswIn==false">*密码不能小于8位</em>
+                <em v-show="focus==3||pswIn==false">*密码不能小于6位</em>
             </label> 
             <button class="loginSub" @click="addToSql">
                 <span v-show="reg">注册速讯</span>
@@ -28,6 +28,7 @@
 
 <script>  
     import qs from 'qs'; 
+    import { mapActions } from 'vuex' 
 
     export default {
         data() {
@@ -46,6 +47,7 @@
             };
         },
         methods: {
+            ...mapActions(['register']),
             addToSql() {   
                 var b = 0;
                 if(this.name!==''&& !/\W/g.test(this.name))
@@ -62,7 +64,7 @@
                     this.telIn = false;
                 }
 
-                if(this.psw.length<8) {
+                if(this.psw.length<6) {
                     b = 1;
                     this.pswIn = false;
                 } else 
@@ -80,11 +82,13 @@
                         this.req = true;
                         this.icon = false;
                         this.reg = false;
+ 
+                        this.register({
+                            name: this.name,
+                            tel: this.tel,
+                            psw: this.psw
+                        });
 
-                        window.localStorage.username=this.name;
-                        window.localStorage.usertel=this.tel;
-                        window.localStorage.userpsw=this.psw;
-  
                         // 如果写了后端用axios交互
                         // this.$http.post('http://127.0.0.1:3000/', qs.stringify({
                         //     name: this.name,

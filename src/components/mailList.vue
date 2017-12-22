@@ -39,14 +39,16 @@
 </template>
 
 <script>  
+    import { mapState, mapActions } from 'vuex';
+
     var contactId = 0;
     export default {
         data() {
             return {
                 own: {
-                    name: window.localStorage.username,
-                    tel: window.localStorage.usertel,
-                    psw: window.localStorage.userpsw,
+                    name: JSON.parse(sessionStorage.user).name,
+                    tel: JSON.parse(sessionStorage.user).tel,
+                    psw: JSON.parse(sessionStorage.user).psw,
                 },
                 clickId: 1,
                 items: 
@@ -62,40 +64,30 @@
                 ]
             }
         }, 
-        created() {
-            this.$http.get({
-                url: '',
-                headers: {'token': window.localStorage.token}
-            }).then((res)=>{
-                this.items = res.data.items;
-            }).catch((error)=>{
-                // alert('error');
-            });
-            /*have ajax to get items*/
-        },
+        // computed: mapState({
+        //     own2: state => state.nowUser
+        // }),  
         methods: { 
+            ...mapActions([
+                'signOut',
+                'changeInfo'
+            ]),
             removeItem(id) {
                 this.items = this.items.filter(function (item) {
                     return item.id !== id; 
-                });
-
-                /*have ajax to remove item*/
+                }); 
             },
             addItem(item) {
                 item.id = contactId++;
                 item.imgSrc = '/static/img/userImg.png';
-                this.items.push(item);
-
-                /*have ajax to add item*/
+                this.items.push(item); 
             },
             changeItem(obj) {
                 for(var key in this.items) 
                     if(this.items[key].id == obj.id) {
                         this.items[key].name = obj.name;
                         this.items[key].tel = obj.tel; 
-                    } 
-                
-                /*have ajax to change item*/
+                    }  
             },
             changeOwn(obj) { 
                 this.own.name = obj.name;
@@ -103,14 +95,14 @@
                 this.own.psw = obj.psw; 
                 
                 // if not have next
-                window.localStorage.username = obj.name;
-                window.localStorage.usertel = obj.tel;
-                window.localStorage.userpsw = obj.psw;
-                
-                /*have ajax to change item*/
+                this.changeInfo({
+                    name: obj.name,
+                    tel: obj.tel,
+                    psw: obj.psw
+                });
             },
             out() {
-                global.token = '';
+                this.signOut();
                 this.$router.replace('/home/login');
             }
         } 

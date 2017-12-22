@@ -1,14 +1,3 @@
-// import Vue from 'vue'
-// import Router from 'vue-router'
-// import app from '@/components/app.vue' 
-// import login from '@/components/login.vue' 
-// import register from '@/components/register.vue' 
-
-// import mailList from '@/components/mailList.vue' 
-// import notes from '@/components/notes.vue' 
-// import addCon from '@/components/addCon.vue' 
-// import own from '@/components/own.vue' 
-
 import Vue from 'vue'
 import Router from 'vue-router'
 

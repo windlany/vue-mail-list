@@ -18,6 +18,7 @@
 
 <script>
     import qs from 'qs';
+    import { mapActions } from 'vuex';
 
     export default {
         data() {
@@ -29,21 +30,24 @@
             };
         },
         methods: {
+            ...mapActions(['signIn']),
             login() { 
                 this.icon = true;
                 this.req = false; 
                 setTimeout(() => {
                     // 未写后端解决方案
-                    if(this.tel == window.localStorage.usertel&& 
-                        this.psw == window.localStorage.userpsw) {
+                    this.signIn({
+                        tel: this.tel,
+                        psw: this.psw
+                    });
+                    if(sessionStorage.status == 1) {
                         this.$router.replace('/contacts');
                         this.icon = false;
+                    } else {
+                        this.icon = false;
+                        this.req = true;
                     }
-
-
-
-
-
+ 
                     // 与后端的axios交互
                     // this.$http.post('http://127.0.0.1:3000/', qs.stringify({
                     //     user_tel: this.tel,

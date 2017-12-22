@@ -20,7 +20,7 @@
             <label for="psw">
                 <span>密码：</span>
                 <input :class="className.psw" type="text" id="psw" v-model="psw" :disabled='edit'/>
-                <em v-show="pswIn">*密码不少于8位且只能由字母、数字、下划线组成</em>
+                <em v-show="pswIn">*密码不少于6位且只能由字母、数字、下划线组成</em>
             </label> 
             <label v-if="edit">
                 <span></span>
@@ -78,7 +78,7 @@
             save: function() {
                 this.nameIn = /\W/g.test(this.name)||this.name.length<1; 
                 this.telIn = /\D/g.test(this.tel)||this.tel.length<1; 
-                this.pswIn = (this.psw.length < 8)||(/\W/g.test(this.psw));
+                this.pswIn = (this.psw.length < 6)||(/\W/g.test(this.psw));
 
                 var result = !(!this.nameIn&&!this.telIn&&!this.pswIn);
                 return result;
