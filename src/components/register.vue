@@ -77,7 +77,6 @@
                     this.req = '';
 
                     setTimeout(() => {
-                        // 如果没写后端
                         this.result = true;
                         this.req = true;
                         this.icon = false;
@@ -88,27 +87,6 @@
                             tel: this.tel,
                             psw: this.psw
                         });
-
-                        // 如果写了后端用axios交互
-                        // this.$http.post('http://127.0.0.1:3000/', qs.stringify({
-                        //     name: this.name,
-                        //     tel: this.tel,
-                        //     psw: this.psw
-                        // })).then((res)=> { 
-                        //     this.result = true;
-                        //     this.req = true;
-                        //     this.icon = false;
-                        //     this.reg = false;
-
-                        //     this.name = '';
-                        //     this.tel = '';
-                        //     this.psw = '';
-                        // }).catch((error)=> { 
-                        //     this.result = true;
-                        //     this.req = false; 
-                        //     this.icon = false;
-                        //     this.reg = false; 
-                        // });
                     }, 1000);
                 } 
             }

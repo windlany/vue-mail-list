@@ -64,6 +64,7 @@
                 ]
             }
         }, 
+        // 不知道为什么这么写不对
         // computed: mapState({
         //     own2: state => state.nowUser
         // }),  

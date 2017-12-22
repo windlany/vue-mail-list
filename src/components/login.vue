@@ -35,7 +35,6 @@
                 this.icon = true;
                 this.req = false; 
                 setTimeout(() => {
-                    // 未写后端解决方案
                     this.signIn({
                         tel: this.tel,
                         psw: this.psw
@@ -46,23 +45,7 @@
                     } else {
                         this.icon = false;
                         this.req = true;
-                    }
- 
-                    // 与后端的axios交互
-                    // this.$http.post('http://127.0.0.1:3000/', qs.stringify({
-                    //     user_tel: this.tel,
-                    //     user_psw: this.psw
-                    // })).then((res)=> { 
-                    //     this.icon = false;
-                    //     window.localStorage.token = res.data.token;
-                    //     this.$router.replace('/contacts');
-
-                    //     this.tel = '';
-                    //     this.psw = '';
-                    // }).catch((error)=> { 
-                    //     this.icon = false;
-                    //     this.req = true;
-                    // });
+                    } 
                 }, 1000);
             }
         }
