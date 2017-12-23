@@ -46,4 +46,9 @@ npm run dev
 - 将localStorage替换为sessionStorage，因为目前项目比较简单，没必要用localStorage，后期可能会用localStorage缓存所有用户信息，用sessionStorage缓存当前登录用户信息
 - 删去了axios的交互，因为目前是没有后台的，日后与后台交互的版本会添加上去。
 
+## v.3
+- 完善登录注册界面的vuex
+- 待解决问题
+ - 个人信息刷新后不存在
+
 #### 随着学习的深入可以做更多的扩展，刚学vue的朋友可以clone下来练练手，大家相互学习
