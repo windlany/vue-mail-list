@@ -44,12 +44,7 @@
     var contactId = 0;
     export default {
         data() {
-            return {
-                own: {
-                    name: JSON.parse(sessionStorage.user).name,
-                    tel: JSON.parse(sessionStorage.user).tel,
-                    psw: JSON.parse(sessionStorage.user).psw,
-                },
+            return { 
                 clickId: 1,
                 items: 
                 [
@@ -65,9 +60,9 @@
             }
         }, 
         // 不知道为什么这么写不对
-        // computed: mapState({
-        //     own2: state => state.nowUser
-        // }),  
+        computed: mapState({
+            own: state => state.user.own
+        }),  
         methods: { 
             ...mapActions([
                 'signOut',
@@ -90,17 +85,8 @@
                         this.items[key].tel = obj.tel; 
                     }  
             },
-            changeOwn(obj) { 
-                this.own.name = obj.name;
-                this.own.tel = obj.tel; 
-                this.own.psw = obj.psw; 
-                
-                // if not have next
-                this.changeInfo({
-                    name: obj.name,
-                    tel: obj.tel,
-                    psw: obj.psw
-                });
+            changeOwn(obj) {  
+                this.changeInfo(obj);
             },
             out() {
                 this.signOut();

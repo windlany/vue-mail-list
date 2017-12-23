@@ -17,7 +17,6 @@
 </template> 
 
 <script>
-    import qs from 'qs';
     import { mapActions } from 'vuex';
 
     export default {
@@ -39,7 +38,7 @@
                         tel: this.tel,
                         psw: this.psw
                     });
-                    if(sessionStorage.status == 1) {
+                    if(sessionStorage.login && sessionStorage.login == 1) {  // 登录成功
                         this.$router.replace('/contacts');
                         this.icon = false;
                     } else {
