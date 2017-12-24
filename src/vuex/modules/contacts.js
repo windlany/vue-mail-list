@@ -6,7 +6,7 @@ const USER_REMOVE = 'USER_REMOVE';
 const USER_CHANGE = 'USER_CHANGE';
 const OWN_CHANGE = 'OWN_CHANGE';
 
-var contactId = 0;  // 应该被保存
+var contactId = 0;
 
 export default {
     state: {

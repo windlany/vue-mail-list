@@ -13,8 +13,6 @@ const own = () => import('@/components/own.vue');
 
 Vue.use(Router)
 
-// 缺少一个路由判断，判断是否为已登录状态，后期补上
-
 export default new Router({
   routes: [ 
     // {path: '/', redirect: '/contacts'},
