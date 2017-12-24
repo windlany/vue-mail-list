@@ -4,8 +4,10 @@
 > 最近在学习vue，就写了一个简易的SPA通讯录项目，该项目用了
 > - vue 
 > - vue-router
-> - axios  
+> - vuex
+> - axios
 > -  localStorage
+> - sessionStorage
 > 
 > 写这个项目之前我用vue写过很多小的页面部件，比如选项卡、路由跳转之类的，但毕竟这些涉及的知识是零散的，当系统的学习了之后我就想做一个整体性的项目，一方面巩固知识一方面打通经脉，所以就写了这个通讯录。
 >
@@ -18,7 +20,7 @@
 ![](https://github.com/windlany/mail_list/blob/master/static/img/contacts.gif)
 
 ## 运行项目
-``` bash
+```bash
 # clone项目到本地
 git clone https://github.com/windlany/mail_list.git
 
@@ -33,22 +35,25 @@ npm run dev
 > 由于该项目耗时较短只是写了大概的功能，很多细节需要完善与修正，我也会持续跟进完善的
 > - vuex状态管理
 > - 添加node后台与之交互
-> - ...
+> - sessionStorage
 
 ## v.1
-- 实现路由跳转
-- localStorage缓存用户信息
-- 项目组件化
-- axios与后台交互
+#### 2017.12.21
+- vue
+- vue-router
+- localStorage
+- axios
 
 ## v.2
-- 添加vuex状态管理
-- 将localStorage替换为sessionStorage，因为目前项目比较简单，没必要用localStorage，后期可能会用localStorage缓存所有用户信息，用sessionStorage缓存当前登录用户信息
-- 删去了axios的交互，因为目前是没有后台的，日后与后台交互的版本会添加上去。
+#### 2017.12.23
+- 登录注册界面vuex
+- <del>localStorae</del>
+- <del>axios</del>
+- sessionStorage缓存用户信息以及已登录用户信息
+- 仅支持单用户注册
 
 ## v.3
+#### 2017.12.24
 - 完善登录注册界面的vuex
-- 待解决问题
- - 个人信息刷新后不存在
-
-#### 随着学习的深入可以做更多的扩展，刚学vue的朋友可以clone下来练练手，大家相互学习
+- localStorage缓存用户信息，sessionStorage缓存当前登录用户信息
+- 支持多用户注册
