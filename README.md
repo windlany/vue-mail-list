@@ -17,7 +17,7 @@
 
 
 ## 动图展示
-![](https://github.com/windlany/mail_list/blob/master/static/img/contacts.gif)
+![](https://github.com/windlany/mail_list/blob/master/static/img/mailList.gif)
 
 ## 运行项目
 ```bash
