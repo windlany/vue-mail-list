@@ -4,11 +4,11 @@
             <label for="name"> 
                 <input type="text" class="input" id="name" @focus.stop="focus=1" @blur="focus=0" v-model="own.name" placeholder="姓名">
                 <em v-show="focus==1||nameIn==false">*姓名不能为空且只能由字母、数字、下划线组成</em>
+                <em v-show="req===false&&focus!=1">*该昵称已被使用</em>
             </label>
             <label for="tel">
                 <input type="text" class="input" id="tel" @focus="focus=2" @blur="focus=0" v-model="own.tel" placeholder="手机号">
                 <em v-show="focus==2||telIn==false">*手机号全为数字</em>
-                <em v-show="req===false&&focus!=2">*该手机号已被注册</em>
             </label>
             <label for="psw" class="last">
                 <input type="password" class="input" id="psw" @focus="focus=3" @blur="focus=0" v-model="own.psw" placeholder="密码（不少于6位）">
@@ -64,7 +64,7 @@
                         this.icon = false;  
                         this.register(this.own);
                         // 注册成功状态
-                        if(sessionStorage.register==1) {
+                        if(sessionStorage.register && sessionStorage.register==1) {
                             this.req = true;
                             this.own.name = "";
                             this.own.tel = '';

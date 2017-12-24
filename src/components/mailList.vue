@@ -39,56 +39,42 @@
 </template>
 
 <script>  
-    import { mapState, mapActions } from 'vuex';
+    import { mapActions, mapState } from 'vuex'
 
-    var contactId = 0;
     export default {
         data() {
-            return { 
-                clickId: 1,
-                items: 
-                [
-                    {id: contactId++, imgSrc: '/static/img/userImg.png', name: '妈妈', tel: 1234555656, status: "亲人"},
-                    {id: contactId++, imgSrc: '/static/img/logo.png', name: 'nic', tel: 1234555656, status: "朋友"},
-                    {id: contactId++, imgSrc: '/static/img/userImg.png', name: '爸爸', tel: 1234555656, status: "亲人"},
-                    {id: contactId++, imgSrc: '/static/img/logo.png', name: 'wind', tel: 1234555656, status: "朋友"},
-                    {id: contactId++, imgSrc: '/static/img/userImg.png', name: 'lily', tel: 1234555656, status: "同学"},
-                    {id: contactId++, imgSrc: '/static/img/userImg.png', name: '爷爷', tel: 1234555656, status: "亲人"},
-                    {id: contactId++, imgSrc: '/static/img/userImg.png', name: 'tom', tel: 1234555656, status: "同学"},
-                    {id: contactId++, imgSrc: '/static/img/logo.png', name: '外婆', tel: 1234555656, status: "亲人"},
-                ]
-            }
+            return {
+                clickId: 1
+            };
         }, 
-        // 不知道为什么这么写不对
-        computed: mapState({
-            own: state => state.user.own
-        }),  
+        computed:  mapState({
+            own: state => state.contacts.own,
+            items: state => state.contacts.items  
+        }),
+        beforeCreate() {    
+            this.$store.dispatch('userInit');    
+        },
         methods: { 
             ...mapActions([
-                'signOut',
-                'changeInfo'
+                'signOut', 
+                'userAdd',
+                'userRemove',
+                'userChange',
+                'ownChange'
             ]),
-            removeItem(id) {
-                this.items = this.items.filter(function (item) {
-                    return item.id !== id; 
-                }); 
+            addItem(item) { 
+                this.userAdd(item);
             },
-            addItem(item) {
-                item.id = contactId++;
-                item.imgSrc = '/static/img/userImg.png';
-                this.items.push(item); 
+            removeItem(id) {
+                this.userRemove(id); 
             },
             changeItem(obj) {
-                for(var key in this.items) 
-                    if(this.items[key].id == obj.id) {
-                        this.items[key].name = obj.name;
-                        this.items[key].tel = obj.tel; 
-                    }  
+                this.userChange(obj); 
             },
             changeOwn(obj) {  
-                this.changeInfo(obj);
+                this.ownChange(obj);    
             },
-            out() {
+            out() { 
                 this.signOut();
                 this.$router.replace('/home/login');
             }

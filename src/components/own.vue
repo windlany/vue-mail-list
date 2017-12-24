@@ -59,8 +59,6 @@
                         psw: this.psw
                     });
                 } 
- 
-                /* have ajax to save info*/
             },
             notChange() {
                 this.edit = true; 

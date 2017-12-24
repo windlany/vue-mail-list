@@ -1,12 +1,12 @@
 <template>
     <div class="login"> 
         <form>
-            <label for="tel"> 
-                <input type="text" class="input" id="tel" v-model="tel" placeholder="手机号">
+            <label for="name"> 
+                <input type="text" class="input" id="name" v-model="name" placeholder="用户名">
             </label>
             <label for="psw" class="last">
                 <input type="password" class="input" id="psw" v-model="psw" placeholder="密码">
-                <em v-show="req">*用户或密码错误</em>
+                <em v-show="req">*用户名或密码错误</em>
             </label>
             <button class="loginSub" @click="login">
                 登 录
@@ -22,7 +22,7 @@
     export default {
         data() {
             return {
-                tel: '',
+                name: '',
                 psw: '',
                 icon: false,
                 req: false
@@ -35,7 +35,7 @@
                 this.req = false; 
                 setTimeout(() => {
                     this.signIn({
-                        tel: this.tel,
+                        name: this.name,
                         psw: this.psw
                     });
                     if(sessionStorage.login && sessionStorage.login == 1) {  // 登录成功
