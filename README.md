@@ -37,14 +37,12 @@ npm run dev
 > - 添加node后台与之交互
 > - sessionStorage
 
-## v.1
 #### 2017.12.21
 - vue
 - vue-router
 - localStorage
 - axios
 
-## v.2
 #### 2017.12.23
 - 登录注册界面vuex
 - <del>localStorae</del>
@@ -52,7 +50,6 @@ npm run dev
 - sessionStorage缓存用户信息以及已登录用户信息
 - 仅支持单用户注册
 
-## v.3
 #### 2017.12.24
 - 完善登录注册界面的vuex
 - localStorage缓存用户信息，sessionStorage缓存当前登录用户信息
