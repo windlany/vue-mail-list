@@ -5,27 +5,25 @@ import store from './store/vuex.js'
 
 Vue.config.productionTip = false;
  
+// 导航守卫，根据是否登录而路由
+router.beforeEach((to, from, next) => {
+    if(to.meta.logined) {
+        if(sessionStorage.login == 1) {  // 若登录状态为1
+            next();
+        } else {
+            next({
+                path: '/home/login',
+            });
+        }
+    } else {
+        next();
+    }
+});
+
 new Vue({
     el: '#app',
     router,
     store,
     template: '<App/>',
-    components: { App },
-    methods: {
-        isLogin() {
-          if(this.check === 1) {
-            this.$router.replace('/contacts');
-          } else {
-            this.$router.replace('/home/register');
-          }
-        }
-    },
-    created() {
-      this.isLogin();  // 根据登录状态路由
-    },
-    computed: {
-        check: function() {
-          return Number(sessionStorage.login);
-        }
-    }
+    components: { App }, 
 })

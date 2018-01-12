@@ -1,4 +1,5 @@
 import Vue from 'vue'; 
+import router from '../../router';
 
 const USER_INIT = 'USER_INIT';  // mail ilst初始化
 const USER_ADD = 'USER_ADD';  // 添加联系人
@@ -21,12 +22,13 @@ export default {
         [USER_ADD](state, user) {
             user.id = contactId++;
             user.imgSrc = '/static/img/userImg.png';
-            state.items.push(user);
+            state.items.push(user); 
+            localStorage.items = JSON.stringify(JSON.parse(localStorage.items).push(user));
         },
         [USER_REMOVE](state, userId) {
             state.items = state.items.filter(function(item) {
                 return item.id !== userId; 
-            });
+            }); 
         },
         [USER_CHANGE](state, user) {
             for(var key in state.items) 
@@ -68,11 +70,16 @@ export default {
                     item.imgSrc = '/static/img/userImg.png';
                     return item;
                 });
+                localStorage.items = JSON.stringify(items);
                 var own = JSON.parse(sessionStorage.user);
 
-                commit(USER_INIT, {items,own});
+                commit(USER_INIT, {
+                    items: JSON.parse(localStorage.items),
+                    own: own
+                });
             } else {
-                alert('请先登录！');
+                alert('请先登录！'); 
+                router.replace('/home/login');
             }
         },
         userAdd({commit}, user) {

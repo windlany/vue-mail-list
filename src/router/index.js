@@ -15,9 +15,7 @@ Vue.use(Router)
 
 export default new Router({
   routes: [ 
-    // {path: '/', redirect: '/contacts'},
-    {path: '/', redirect: '/home/register'},
-    
+    {path: '/', redirect: '/home/register'}, 
     {
       path: '/home',
       component: app,
@@ -28,9 +26,13 @@ export default new Router({
     }, 
     {
       path: '/contacts',
-      component: mailList,
+      component: mailList, 
       children: [
-        {path: '', component: notes},
+        {
+            path: '', 
+            component: notes, 
+            meta: { logined: true }
+        },
         {path: 'add', component: addCon},
         {path: 'own', component: own},
       ]
