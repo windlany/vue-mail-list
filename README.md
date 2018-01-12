@@ -57,3 +57,6 @@ npm run dev
 - 完善登录注册界面的vuex
 - localStorage缓存用户信息，sessionStorage缓存当前登录用户信息
 - 支持多用户注册
+
+#### 2018.1.12
+- 添加导航守卫
